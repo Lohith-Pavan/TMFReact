@@ -1,5 +1,5 @@
 {
-  "name": "tmfreact",
+  "name": "tmf_react",
   "version": "1.0.0",
   "description": "first react app",
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lohith-Pavan/TMFReact.git"
+    "url": "github.com/Lohith-Pavan/TMFReact"
   },
   "keywords": [
     "react",
@@ -15,22 +15,13 @@
     "app",
     "npm"
   ],
-  "author": "lohith-pavan",
+  "author": "Lohith Pavan",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Lohith-Pavan/TMFReact/issues"
-  },
-  "homepage": "https://github.com/Lohith-Pavan/TMFReact#readme",
   "devDependencies": {
-    "parcel": "^2.14.4"
+    "parcel": "^2.15.1"
   },
   "dependencies": {
-    "bundler": "^0.8.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
-  },
-  "browserslist":[
-       "last 10 chrome versions",
-       "last 2 firefox version"
-  ]
+  }
 }
