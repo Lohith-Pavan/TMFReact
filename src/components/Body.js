@@ -1,4 +1,4 @@
-import RestuarantCard from "./RestuarantCard";
+import RestuarantCard from "./RestaurantCard.js"
 import { resCardObj } from "../utils/mockdata.js";
 import { useState, useEffect } from "react";
 
@@ -18,8 +18,7 @@ const Body = () => {
     console.log(jsonObj);
 
     setListOfRestraunts(
-      jsonObj?.data?.card[4]?.card?.card?.gridElements?.infoWithStyle
-        .restaurants[0]?.info
+      jsonObj?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     //setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   };
@@ -32,7 +31,7 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
-              (res) => res.avgRating > 3.5
+              (res) => res?.info?.avgRating > 3.5
             );
             console.log(filteredList);
             setListOfRestraunts(filteredList);
@@ -43,7 +42,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfRestaurants.map((res) => (
-          <RestuarantCard resInfo={res} />
+          <RestuarantCard key={res?.info?.id} resInfo={res?.info} />
         ))}
       </div>
     </div>

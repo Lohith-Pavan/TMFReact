@@ -5,12 +5,12 @@ const RestuarantCard = (props) => (
     {console.log(props)}
     <img
       className="res-logo"
-      src={RES_IMG + props.resInfo.info.cloudinaryImageId}
+      src={RES_IMG + props.cloudinaryImageId}
     />
-    <h3>{props.resInfo.info.name}</h3>
-    <h3>{props.resInfo.info.cuisines}</h3>
-    <h3>{props.resInfo.info.avgRating}</h3>
-    <h3>{props.resInfo.info.costForTwo}</h3>
+    <h3>{props.name}</h3>
+    <h3>{props.cuisines}</h3>
+    <h3>{props.avgRating}</h3>
+    <h3>{props.costForTwo}</h3>
   </div>
 );
 
