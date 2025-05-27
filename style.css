@@ -1,9 +1,6 @@
-body,.greeting{
-  margin: 0;
-  padding: 0;
-  background-color: black;
-  height: 100%;
-  color: white;
-  font-size: 33px;
-  text-align: center;
+.restaurant {
+  background-color: white;
+}
+.res-image {
+  width: 200px;
 }

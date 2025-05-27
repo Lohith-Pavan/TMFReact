@@ -1,11 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Header from "./componenets/Header";
+import Body from "./componenets/Body";
 
-const elementProps = {className : "greeting", children : "I am the owner of this company"};
-const elementType = "h1";
-const element = React.createElement(elementType,elementProps);
+const AppRoot = () => {
+  return (
+    <div className="app-root">
+      <Header />
+      <Body />
+    </div>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(element);
+root.render(<AppRoot />);
 // var hOneReact = React.createElement("h1", {}, "HEADING CREATED using React");
 // var htmlRoot = document.getElementById("root");
 // var rootReact = ReactDOM.createRoot(htmlRoot);
