@@ -1,9 +1,9 @@
-import RestuarantCard from "./RestaurantCard.js"
-import { resCardObj } from "../utils/mockdata.js";
-import { useState, useEffect } from "react";
+import { resList } from "../utils/mockdata";
+import RestaurantCard from "./RestaurantCard";
+import { useState,useEffect } from "react";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestraunts] = useState(resCardObj);
+  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
 
   useEffect(() => {
     fetchData();
@@ -11,14 +11,14 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.6868159&lng=83.2184815&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const jsonObj = await data.json();
     console.log(jsonObj);
 
-    setListOfRestraunts(
-      jsonObj?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    setListOfRestaurants(
+      jsonObj?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     //setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   };
@@ -31,10 +31,10 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
-              (res) => res?.info?.avgRating > 3.5
+              (res) => res?.info?.avgRating > 4.5
             );
             console.log(filteredList);
-            setListOfRestraunts(filteredList);
+            setListOfRestaurants(filteredList);
           }}
         >
           Top Ratted Restaurant
@@ -42,7 +42,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfRestaurants.map((res) => (
-          <RestuarantCard key={res?.info?.id} resInfo={res?.info} />
+          <RestaurantCard key={res?.info?.id} resInfo={res?.info} />
         ))}
       </div>
     </div>
@@ -50,3 +50,19 @@ const Body = () => {
 };
 
 export default Body;
+
+// const Body = () => {
+//   const restaurantArray = resList?.[0]?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+//   console.log("restaurantArray",restaurantArray);
+//   return (
+//     <div className="body">
+//       <div className="search">Search</div>
+//       <div className="res-container">
+//         {restaurantArray.map((restaurant) => (
+//           <RestaurantCard key={restaurant?.info?.id} resData={restaurant?.info} />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+

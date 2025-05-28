@@ -1,2 +1,3 @@
-export const resCardObj = [];
-  
+
+export const resList=[];
+
